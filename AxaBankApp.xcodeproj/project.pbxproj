@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF54ACD01561527700DE5E8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACCF1561527700DE5E8A /* Foundation.framework */; };
+		AF54ACD21561527700DE5E8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACD11561527700DE5E8A /* UIKit.framework */; };
+		AF54ACD41561527700DE5E8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACD31561527700DE5E8A /* CoreGraphics.framework */; };
+		AF54ACD61561527700DE5E8A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACD51561527700DE5E8A /* AddressBook.framework */; };
+		AF54ACD81561527700DE5E8A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACD71561527700DE5E8A /* AddressBookUI.framework */; };
+		AF54ACDA1561527700DE5E8A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACD91561527700DE5E8A /* AudioToolbox.framework */; };
+		AF54ACDC1561527700DE5E8A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACDB1561527700DE5E8A /* AVFoundation.framework */; };
+		AF54ACDE1561527700DE5E8A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACDD1561527700DE5E8A /* CoreLocation.framework */; };
+		AF54ACE01561527700DE5E8A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACDF1561527700DE5E8A /* MediaPlayer.framework */; };
+		AF54ACE21561527700DE5E8A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACE11561527700DE5E8A /* QuartzCore.framework */; };
+		AF54ACE41561527700DE5E8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACE31561527700DE5E8A /* SystemConfiguration.framework */; };
+		AF54ACE61561527700DE5E8A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACE51561527700DE5E8A /* MobileCoreServices.framework */; };
+		AF54ACE81561527700DE5E8A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACE71561527700DE5E8A /* CoreMedia.framework */; };
+		AF54ACEE1561527700DE5E8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACEC1561527700DE5E8A /* InfoPlist.strings */; };
+		AF54ACF01561527700DE5E8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF54ACEF1561527700DE5E8A /* main.m */; };
+		AF54ACF31561527700DE5E8A /* PhoneGap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF54ACF21561527700DE5E8A /* PhoneGap.framework */; };
+		AF54ACF81561527700DE5E8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACF61561527700DE5E8A /* Localizable.strings */; };
+		AF54ACFC1561527700DE5E8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACFA1561527700DE5E8A /* Localizable.strings */; };
+		AF54ACFF1561527700DE5E8A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACFE1561527700DE5E8A /* icon.png */; };
+		AF54AD011561527700DE5E8A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD001561527700DE5E8A /* icon@2x.png */; };
+		AF54AD031561527700DE5E8A /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD021561527700DE5E8A /* icon-72.png */; };
+		AF54AD061561527700DE5E8A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD051561527700DE5E8A /* Default.png */; };
+		AF54AD081561527700DE5E8A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD071561527700DE5E8A /* Default@2x.png */; };
+		AF54AD0A1561527800DE5E8A /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD091561527800DE5E8A /* Capture.bundle */; };
+		AF54AD0C1561527800DE5E8A /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD0B1561527800DE5E8A /* PhoneGap.plist */; };
+		AF54AD101561527800DE5E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF54AD0F1561527800DE5E8A /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF54ACCB1561527700DE5E8A /* AxaBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AxaBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF54ACCF1561527700DE5E8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AF54ACD11561527700DE5E8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AF54ACD31561527700DE5E8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AF54ACD51561527700DE5E8A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AF54ACD71561527700DE5E8A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		AF54ACD91561527700DE5E8A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AF54ACDB1561527700DE5E8A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AF54ACDD1561527700DE5E8A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AF54ACDF1561527700DE5E8A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AF54ACE11561527700DE5E8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AF54ACE31561527700DE5E8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF54ACE51561527700DE5E8A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AF54ACE71561527700DE5E8A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AF54ACEB1561527700DE5E8A /* AxaBankApp-Info.plist */ = {isa = PBXFileReference; path = "AxaBankApp-Info.plist"; sourceTree = "<group>"; };
+		AF54ACED1561527700DE5E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AF54ACEF1561527700DE5E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AF54ACF11561527700DE5E8A /* AxaBankApp-Prefix.pch */ = {isa = PBXFileReference; path = "AxaBankApp-Prefix.pch"; sourceTree = "<group>"; };
+		AF54ACF21561527700DE5E8A /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<absolute>"; };
+		AF54ACF71561527700DE5E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AF54ACFB1561527700DE5E8A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AF54ACFE1561527700DE5E8A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icons/icon.png; sourceTree = "<group>"; };
+		AF54AD001561527700DE5E8A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Resources/icons/icon@2x.png"; sourceTree = "<group>"; };
+		AF54AD021561527700DE5E8A /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72.png"; path = "Resources/icons/icon-72.png"; sourceTree = "<group>"; };
+		AF54AD051561527700DE5E8A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/splash/Default.png; sourceTree = "<group>"; };
+		AF54AD071561527700DE5E8A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/splash/Default@2x.png"; sourceTree = "<group>"; };
+		AF54AD091561527800DE5E8A /* Capture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Capture.bundle; path = Resources/Capture.bundle; sourceTree = "<group>"; };
+		AF54AD0B1561527800DE5E8A /* PhoneGap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
+		AF54AD0E1561527800DE5E8A /* AppDelegate.h */ = {isa = PBXFileReference; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		AF54AD0F1561527800DE5E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		AF54AD121561527800DE5E8A /* README */ = {isa = PBXFileReference; name = README; path = Plugins/README; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF54ACC51561527700DE5E8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF54ACD01561527700DE5E8A /* Foundation.framework in Frameworks */,
+				AF54ACD21561527700DE5E8A /* UIKit.framework in Frameworks */,
+				AF54ACD41561527700DE5E8A /* CoreGraphics.framework in Frameworks */,
+				AF54ACD61561527700DE5E8A /* AddressBook.framework in Frameworks */,
+				AF54ACD81561527700DE5E8A /* AddressBookUI.framework in Frameworks */,
+				AF54ACDA1561527700DE5E8A /* AudioToolbox.framework in Frameworks */,
+				AF54ACDC1561527700DE5E8A /* AVFoundation.framework in Frameworks */,
+				AF54ACDE1561527700DE5E8A /* CoreLocation.framework in Frameworks */,
+				AF54ACE01561527700DE5E8A /* MediaPlayer.framework in Frameworks */,
+				AF54ACE21561527700DE5E8A /* QuartzCore.framework in Frameworks */,
+				AF54ACE41561527700DE5E8A /* SystemConfiguration.framework in Frameworks */,
+				AF54ACE61561527700DE5E8A /* MobileCoreServices.framework in Frameworks */,
+				AF54ACE81561527700DE5E8A /* CoreMedia.framework in Frameworks */,
+				AF54ACF31561527700DE5E8A /* PhoneGap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF54ACC81561527700DE5E8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF54ACBD1561527600DE5E8A = {
+			isa = PBXGroup;
+			children = (
+				AF54ACE91561527700DE5E8A /* AxaBankApp */,
+				AF54ACCE1561527700DE5E8A /* Frameworks */,
+				AF54ACCC1561527700DE5E8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF54ACCC1561527700DE5E8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACCB1561527700DE5E8A /* AxaBankApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF54ACCE1561527700DE5E8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACCF1561527700DE5E8A /* Foundation.framework */,
+				AF54ACD11561527700DE5E8A /* UIKit.framework */,
+				AF54ACD31561527700DE5E8A /* CoreGraphics.framework */,
+				AF54ACD51561527700DE5E8A /* AddressBook.framework */,
+				AF54ACD71561527700DE5E8A /* AddressBookUI.framework */,
+				AF54ACD91561527700DE5E8A /* AudioToolbox.framework */,
+				AF54ACDB1561527700DE5E8A /* AVFoundation.framework */,
+				AF54ACDD1561527700DE5E8A /* CoreLocation.framework */,
+				AF54ACDF1561527700DE5E8A /* MediaPlayer.framework */,
+				AF54ACE11561527700DE5E8A /* QuartzCore.framework */,
+				AF54ACE31561527700DE5E8A /* SystemConfiguration.framework */,
+				AF54ACE51561527700DE5E8A /* MobileCoreServices.framework */,
+				AF54ACE71561527700DE5E8A /* CoreMedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF54ACE91561527700DE5E8A /* AxaBankApp */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACF21561527700DE5E8A /* PhoneGap.framework */,
+				AF54ACF41561527700DE5E8A /* Resources */,
+				AF54AD0D1561527800DE5E8A /* Classes */,
+				AF54AD111561527800DE5E8A /* Plugins */,
+				AF54ACEA1561527700DE5E8A /* Supporting Files */,
+			);
+			path = AxaBankApp;
+			sourceTree = "<group>";
+		};
+		AF54ACEA1561527700DE5E8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACEB1561527700DE5E8A /* AxaBankApp-Info.plist */,
+				AF54ACEC1561527700DE5E8A /* InfoPlist.strings */,
+				AF54ACEF1561527700DE5E8A /* main.m */,
+				AF54ACF11561527700DE5E8A /* AxaBankApp-Prefix.pch */,
+				AF54AD0B1561527800DE5E8A /* PhoneGap.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF54ACF41561527700DE5E8A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF54AD091561527800DE5E8A /* Capture.bundle */,
+				AF54ACF51561527700DE5E8A /* en.lproj */,
+				AF54ACF91561527700DE5E8A /* es.lproj */,
+				AF54ACFD1561527700DE5E8A /* icons */,
+				AF54AD041561527700DE5E8A /* splash */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AF54ACF51561527700DE5E8A /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACF61561527700DE5E8A /* Localizable.strings */,
+			);
+			name = en.lproj;
+			sourceTree = "<group>";
+		};
+		AF54ACF91561527700DE5E8A /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACFA1561527700DE5E8A /* Localizable.strings */,
+			);
+			name = es.lproj;
+			sourceTree = "<group>";
+		};
+		AF54ACFD1561527700DE5E8A /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				AF54ACFE1561527700DE5E8A /* icon.png */,
+				AF54AD001561527700DE5E8A /* icon@2x.png */,
+				AF54AD021561527700DE5E8A /* icon-72.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		AF54AD041561527700DE5E8A /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				AF54AD051561527700DE5E8A /* Default.png */,
+				AF54AD071561527700DE5E8A /* Default@2x.png */,
+			);
+			name = splash;
+			sourceTree = "<group>";
+		};
+		AF54AD0D1561527800DE5E8A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AF54AD0E1561527800DE5E8A /* AppDelegate.h */,
+				AF54AD0F1561527800DE5E8A /* AppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		AF54AD111561527800DE5E8A /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				AF54AD121561527800DE5E8A /* README */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF54ACCA1561527700DE5E8A /* AxaBankApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF54AD151561527800DE5E8A /* Build configuration list for PBXNativeTarget "AxaBankApp" */;
+			buildPhases = (
+				AF54ACC41561527700DE5E8A /* Sources */,
+				AF54ACC51561527700DE5E8A /* Frameworks */,
+				AF54ACC61561527700DE5E8A /* Resources */,
+				AF54ACC71561527700DE5E8A /* Sources */,
+				AF54ACC81561527700DE5E8A /* Frameworks */,
+				AF54ACC91561527700DE5E8A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AxaBankApp;
+			productName = AxaBankApp;
+			productReference = AF54ACCB1561527700DE5E8A /* AxaBankApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF54ACBF1561527600DE5E8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = AF54ACC21561527600DE5E8A /* Build configuration list for PBXProject "AxaBankApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				es,
+			);
+			mainGroup = AF54ACBD1561527600DE5E8A;
+			productRefGroup = AF54ACCC1561527700DE5E8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF54ACCA1561527700DE5E8A /* AxaBankApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF54ACC61561527700DE5E8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF54ACEE1561527700DE5E8A /* InfoPlist.strings in Resources */,
+				AF54ACF81561527700DE5E8A /* Localizable.strings in Resources */,
+				AF54ACFC1561527700DE5E8A /* Localizable.strings in Resources */,
+				AF54ACFF1561527700DE5E8A /* icon.png in Resources */,
+				AF54AD011561527700DE5E8A /* icon@2x.png in Resources */,
+				AF54AD031561527700DE5E8A /* icon-72.png in Resources */,
+				AF54AD061561527700DE5E8A /* Default.png in Resources */,
+				AF54AD081561527700DE5E8A /* Default@2x.png in Resources */,
+				AF54AD0A1561527800DE5E8A /* Capture.bundle in Resources */,
+				AF54AD0C1561527800DE5E8A /* PhoneGap.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF54ACC91561527700DE5E8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "\n\t\t\t\t\t\t\t\tif [ ! -d \"$PROJECT_DIR/www\" ] ; then\n\t\t\t\t\t\t\t\t\tcp -R /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/www \"$PROJECT_DIR\"\n\t\t\t\t\t\t\t\tfi\n\t\t\t\t\t\t\t\t# detect www folder reference in project, if missing, print warning\n\t\t\t\t\t\t\t\tgrep \"{isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = \\\"<group>\\\"; };\" \"$PROJECT_DIR/$PROJECT_NAME.xcodeproj/project.pbxproj\"\n\t\t\t\t\t\t\t\trc=$? \n\t\t\t\t\t\t\t\tif [ $rc != 0 ] ; then\n\t\t\t\t\t\t\t\techo -e \"warning: Missing - Add $PROJECT_DIR/www as a folder reference in your project. Just drag and drop the folder into your project, in Xcode 4.\" 1>&2\n\t\t\t\t\t\t\t\tfi\t\t\t\t\t\t\t";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF54ACC41561527700DE5E8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF54ACF01561527700DE5E8A /* main.m in Sources */,
+				AF54AD101561527800DE5E8A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF54ACC71561527700DE5E8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AF54ACEC1561527700DE5E8A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF54ACED1561527700DE5E8A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AF54ACF61561527700DE5E8A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF54ACF71561527700DE5E8A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AF54ACFA1561527700DE5E8A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF54ACFB1561527700DE5E8A /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF54AD131561527800DE5E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AF54AD141561527800DE5E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF54AD161561527800DE5E8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AxaBankApp/AxaBankApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
+				INFOPLIST_FILE = "AxaBankApp/AxaBankApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AF54AD171561527800DE5E8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AxaBankApp/AxaBankApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
+				INFOPLIST_FILE = "AxaBankApp/AxaBankApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF54ACC21561527600DE5E8A /* Build configuration list for PBXProject "AxaBankApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF54AD131561527800DE5E8A /* Debug */,
+				AF54AD141561527800DE5E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF54AD151561527800DE5E8A /* Build configuration list for PBXNativeTarget "AxaBankApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF54AD161561527800DE5E8A /* Debug */,
+				AF54AD171561527800DE5E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF54ACBF1561527600DE5E8A /* Project object */;
+}
