@@ -27,12 +27,12 @@
 		AF54ACFC1561527700DE5E8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACFA1561527700DE5E8A /* Localizable.strings */; };
 		AF54ACFF1561527700DE5E8A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54ACFE1561527700DE5E8A /* icon.png */; };
 		AF54AD011561527700DE5E8A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD001561527700DE5E8A /* icon@2x.png */; };
-		AF54AD031561527700DE5E8A /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD021561527700DE5E8A /* icon-72.png */; };
-		AF54AD061561527700DE5E8A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD051561527700DE5E8A /* Default.png */; };
 		AF54AD081561527700DE5E8A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD071561527700DE5E8A /* Default@2x.png */; };
 		AF54AD0A1561527800DE5E8A /* Capture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD091561527800DE5E8A /* Capture.bundle */; };
 		AF54AD0C1561527800DE5E8A /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD0B1561527800DE5E8A /* PhoneGap.plist */; };
 		AF54AD101561527800DE5E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF54AD0F1561527800DE5E8A /* AppDelegate.m */; };
+		AF54AD1E1561539600DE5E8A /* www in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD1D1561539600DE5E8A /* www */; };
+		AF54AD2F1564926F00DE5E8A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AF54AD2E1564926F00DE5E8A /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +50,10 @@
 		AF54ACE31561527700DE5E8A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AF54ACE51561527700DE5E8A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AF54ACE71561527700DE5E8A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		AF54ACEB1561527700DE5E8A /* AxaBankApp-Info.plist */ = {isa = PBXFileReference; path = "AxaBankApp-Info.plist"; sourceTree = "<group>"; };
+		AF54ACEB1561527700DE5E8A /* AxaBankApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AxaBankApp-Info.plist"; sourceTree = "<group>"; };
 		AF54ACED1561527700DE5E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AF54ACEF1561527700DE5E8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AF54ACF11561527700DE5E8A /* AxaBankApp-Prefix.pch */ = {isa = PBXFileReference; path = "AxaBankApp-Prefix.pch"; sourceTree = "<group>"; };
+		AF54ACF11561527700DE5E8A /* AxaBankApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AxaBankApp-Prefix.pch"; sourceTree = "<group>"; };
 		AF54ACF21561527700DE5E8A /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<absolute>"; };
 		AF54ACF71561527700DE5E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AF54ACFB1561527700DE5E8A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -64,9 +64,11 @@
 		AF54AD071561527700DE5E8A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/splash/Default@2x.png"; sourceTree = "<group>"; };
 		AF54AD091561527800DE5E8A /* Capture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Capture.bundle; path = Resources/Capture.bundle; sourceTree = "<group>"; };
 		AF54AD0B1561527800DE5E8A /* PhoneGap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
-		AF54AD0E1561527800DE5E8A /* AppDelegate.h */ = {isa = PBXFileReference; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		AF54AD0E1561527800DE5E8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		AF54AD0F1561527800DE5E8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		AF54AD121561527800DE5E8A /* README */ = {isa = PBXFileReference; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		AF54AD121561527800DE5E8A /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		AF54AD1D1561539600DE5E8A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		AF54AD2E1564926F00DE5E8A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,8 @@
 		AF54ACBD1561527600DE5E8A = {
 			isa = PBXGroup;
 			children = (
+				AF54AD2E1564926F00DE5E8A /* Default-Landscape~ipad.png */,
+				AF54AD1D1561539600DE5E8A /* www */,
 				AF54ACE91561527700DE5E8A /* AxaBankApp */,
 				AF54ACCE1561527700DE5E8A /* Frameworks */,
 				AF54ACCC1561527700DE5E8A /* Products */,
@@ -285,11 +289,11 @@
 				AF54ACFC1561527700DE5E8A /* Localizable.strings in Resources */,
 				AF54ACFF1561527700DE5E8A /* icon.png in Resources */,
 				AF54AD011561527700DE5E8A /* icon@2x.png in Resources */,
-				AF54AD031561527700DE5E8A /* icon-72.png in Resources */,
-				AF54AD061561527700DE5E8A /* Default.png in Resources */,
 				AF54AD081561527700DE5E8A /* Default@2x.png in Resources */,
 				AF54AD0A1561527800DE5E8A /* Capture.bundle in Resources */,
 				AF54AD0C1561527800DE5E8A /* PhoneGap.plist in Resources */,
+				AF54AD1E1561539600DE5E8A /* www in Resources */,
+				AF54AD2F1564926F00DE5E8A /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,11 +367,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -378,7 +383,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -388,15 +393,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -405,6 +411,7 @@
 		AF54AD161561527800DE5E8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALTERNATE_GROUP = admin;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
@@ -413,7 +420,10 @@
 				GCC_PREFIX_HEADER = "AxaBankApp/AxaBankApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "AxaBankApp/AxaBankApp-Info.plist";
+				INSTALL_GROUP = admin;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -421,6 +431,7 @@
 		AF54AD171561527800DE5E8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALTERNATE_GROUP = admin;
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -429,7 +440,10 @@
 				GCC_PREFIX_HEADER = "AxaBankApp/AxaBankApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "AxaBankApp/AxaBankApp-Info.plist";
+				INSTALL_GROUP = admin;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -454,6 +468,7 @@
 				AF54AD171561527800DE5E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

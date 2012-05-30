@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- iPad/iPhone specific css below, add after your main css >
+     <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+     -->
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.swipable.js"></script>
+    <script type="text/javascript" src="js/scrollfix.js"></script>
+    
+    
+    <script type="text/javascript" charset="utf-8">
+      
+      
+      var ENDPOINT = "http://axaconcours.herokuapp.com/";
+      var categoryHash = new Array;
+      categoryHash['empty'] = null;
+      categoryHash['transport'] = 1;
+      categoryHash['health'] = 2;
+      categoryHash['house'] = 3;
+      categoryHash['community'] = 4;
+      categoryHash['clothing'] = 5;
+      categoryHash['grocery'] = 6;
+      categoryHash['leisure'] = 7;
+      var categoryString = ['empty', 'transport', 'health', 'house', 'community', 'clothing', 'grocery', 'leisure'];
+      
+      var ratingString = ['', 'one', 'two', 'three', 'four', 'five'];
+      var ratingHash = new Array;
+      ratingHash['one'] = 1;
+      ratingHash['two'] = 2;
+      ratingHash['three'] = 3;
+      ratingHash['four'] = 4;
+      ratingHash['five'] = 5;
+      
+      // If you want to prevent dragging, uncomment this section
+      /*
+       function preventBehavior(e) 
+       { 
+       e.preventDefault(); 
+       };
+       document.addEventListener("touchmove", preventBehavior, false);
+       */
+      
+      /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+       see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+       for more details -jm */
+      /*
+       function handleOpenURL(url)
+       {
+       // TODO: do something with the url passed in.
+       }
+       */
+      
+      function onBodyLoad()
+      {		
+        document.addEventListener("deviceready",onDeviceReady,false);
+      }
+      
+      /* When this function is called, PhoneGap has been initialized and is ready to roll */
+      /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+       see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+       for more details -jm */
+      function onDeviceReady()
+      {
+        $('#login_button').click(function authenticate() {
+                                 var login = $("input[name='login']").val();
+                                 var pwd = $("input[name='password']").val();
+                                 
+                                 $('#loading').fadeIn('fast');
+                                 
+                                 var loginRequest = $.ajax({
+                                                           dataType: 'json',
+                                                           crossDomain: true,
+                                                           url: ENDPOINT + "authenticate",
+                                                           data: { un: login, pw: pwd },
+                                                           success: function successLogin(data){
+                                                           if(data.response == 'ok')
+                                                           loadTransaction(function(data){
+                                                                           var trx = data.transactions;
+                                                                           for(t in trx){
+                                                                           
+                                                                           var rating = parseInt(trx[t].satisfaction);
+                                                                           if(!rating){rating = 0;}
+                                                                           
+                                                                           var category = parseInt(trx[t].category);
+                                                                           if(!category){category = 0;}
+                                                                           
+                                                                           var eco = '';
+                                                                           if(trx[t].eco)
+                                                                            eco = 'checked';
+                                                                           
+                                                                           var item = '<div class="item" id="' + trx[t].id + '">' +
+                                                                                      '<div class="transaction-info">' +
+                                                                                      '<p class="date">' + trx[t].date + '</p>' +
+                                                                                      '<p class="amount">' + trx[t].amount + '</p>' +
+                                                                                      '<p class="label">' + trx[t].label + '</p>' +
+                                                                                      '<div class="rating ' + ratingString[rating] + '"><div class="loading"><img src="images/line_items/stars_loading.gif" /></div><div class="one"></div><div class="two"></div><div class="three"></div><div class="four"></div><div class="five"></div></div>' +
+                                                                                      '<p class="see_feedbacks">Voir les avis des utilisateurs <span>&#9658;</span></p>' +
+                                                                                      '</div>' +
+                                                                                      '<div class="drop-box ' + categoryString[category] + '"></div>' +
+                                                                                      '<div class="eco-check ' + eco + '"></div>' +
+                                                                                      '<div class="feedbacks"></div>' +
+                                                                                      '</div>';
+                                                                           $('#scrollable-content').append(item);
+                                                                           }
+                                                                           onTransactionLoaded();
+                                                                           $("#login_screen").fadeOut(400);
+                                                                           });
+                                                           else
+                                                           $('#loading').hide();
+                                                           $('#login_screen form input[type="text"], #login_screen form input[type="password"]').css('border', '#ff0000 2px solid');
+                                                           
+                                                           },
+                                                           error: function errorLogin(){
+                                                           $('#loading').hide();
+                                                           navigator.notification.alert('Une erreur de communication est survenue lors de l\'authentification.');
+                                                           }
+                                                           });
+                                 
+                                 return false;
+                                 });
+        
+        
+        var greyed = $('#greyed');
+        var notificationTriggered = false;
+        $('.noscroll').bind('touchmove', function(e){ e.preventDefault(); });
+        
+        
+        $('.draggable').draggable({ opacity: 0.9, revert: true });
+        
+        
+        
+        $('.sidebar .button').on('touchstart', function openPanelFromSidebar(){
+                                 if( expended = $('.expanded') ){
+                                 expended.animate({"right": "-=" + (expended.width() + 50) + "px"}, "fast");
+                                 //expended.css('right', '-' + (expended.width() + 50) + 'px');
+                                 expended.removeClass('expanded');
+                                 //greyed.fadeOut('fast');
+                                 }
+                                 if($(this).hasClass('selected')){
+                                 $(this).removeClass('selected');
+                                 greyed.fadeOut('fast');
+                                 } else{
+                                 $('.sidebar .button').removeClass('selected');
+                                 $(this).addClass('selected');
+                                 slidingPanel = $( '.' + $(this).attr('id') + '.sliding-panel');
+                                 slidingPanel.addClass('expanded');
+                                 slidingPanel.animate({"right": "+=" + (slidingPanel.width() + 50) + "px"}, "slow");
+                                 //slidingPanel.css('right', '0');
+                                 greyed.fadeIn('slow');
+                                 }	
+                                 });
+        $('.sliding-panel').swipable();
+        $('.sliding-panel').bind('swipe.right', function closePanelRightSwipe(){
+                                 closePanel();
+                                 });
+        greyed.on('touchstart', function clickGreyedArea(){
+                  closePanel();
+                  });
+        
+        function closePanel(){
+          if( expanded = $('.expanded') ){
+            expanded.animate({"right": "-=" + (expanded.width() + 50) + "px"}, "fast");
+            //expanded.css('right', '-' + (expanded.width() + 50) + 'px');
+            expanded.removeClass('expanded');
+          }
+          if( bottomExpanded = $('.bottom-expanded') ){
+            //bottomExpanded.animate({"bottom": "-=" + (bottomExpanded.height() + 50) + "px"}, "fast");
+            bottomExpanded.removeClass('bottom-expanded');
+            //bottomExpanded.css('bottom', '-' + (bottomExpanded.height() + 50) + 'px');
+            bottomExpanded.animate({height: 'toggle'}, "fast");
+            greyed.removeClass('all');
+          }
+          greyed.fadeOut('fast');
+          $('.sidebar .button').removeClass('selected');
+        }
+        
+        
+        $('.dialog-button').on('touchstart', function closeEcoPanelFromButtons(){
+                               closePanel();
+                               });
+        $('.new-eco').swipable();
+        $('.new-eco').bind('swipe.bottom', function closeEcoPanelBottomSwipe(){
+                           closePanel();
+                           });
+        
+        $('.delete-button').on('touchstart', function deleteLiElement(){
+                               $(this).parent().slideToggle('slow');
+                               });
+        $('.add').on('touchstart', function addLiElement(){
+                     $('.hidden-li').slideToggle('slow');
+                     });
+        
+        
+        
+        $('.dialog-button.validate').on('touchstart', function notificationCountDown(){
+                                        if(!notificationTriggered){
+                                        setTimeout(function(){
+                                                   $('.sidebar #eco').addClass('notified');
+                                                   notificationTriggered = true;
+                                                   }, 5000);
+                                        }
+                                        });
+        $('.sidebar #eco').on('touchstart', function handleNotification(){
+                              if(notificationTriggered){
+                              $('.sidebar #eco').removeClass('notified');
+                              setTimeout(function(){
+                                         $('.eco.sliding-panel .content-list li:first-child').slideDown(1500);
+                                         }, 500);
+                              }
+                              });
+        
+        
+        function updateCategory(transactionId, categoryName, oldClass, dropbox, callback){
+          var categoryInt = categoryHash[categoryName];
+          $.ajax({
+                 dataType: 'json',
+                 crossDomain: true,
+                 url: ENDPOINT + "categorize-transaction",
+                 data: { id: transactionId, category: categoryInt },
+                 success: function successUpdateCategory(dataResponse){
+                 callback(dataResponse, categoryName, oldClass, dropbox);
+                 },
+                 error: function errorUpdateCategory(){
+                 navigator.notification.alert('Une erreur de communication est survenue lors de la mise à jour de la catégorie.');
+                 }
+                 
+                 });
+        }
+        
+        function updateSatisfaction(transactionId, satisfactionScore, callback){
+          $.ajax({
+                 dataType: 'json',
+                 crossDomain: true,
+                 url: ENDPOINT + "set-satisfaction",
+                 data: { id: transactionId, satisfaction: satisfactionScore },
+                 success: function successUpdateSatisfaction(dataResponse){
+                 callback(dataResponse);
+                 },
+                 error: function errorUpdateSatisfaction(){
+                 navigator.notification.alert('Une erreur de communication est survenue lors de la mise à jour du score de satisfaction.');
+                 }
+                 
+                 });
+        }
+        
+        function loadTransaction(successCallback){
+          $.ajax({
+                 dataType: 'json',
+                 crossDomain: true,
+                 url: ENDPOINT + "transactions",
+                 success: function loadTransactionsSuccess(data){
+                 successCallback(data);
+                 },
+                 error: function loadTransactionsError(){
+                 $('#loading').hide();
+                 navigator.notification.alert('Une erreur de communication est survenue lors de la récupération des transactions.');
+                 }
+                 });
+          callback();
+        }
+        
+        function onTransactionLoaded(){
+          var scrollable = document.getElementById("scrollable-content");
+          new ScrollFix(scrollable);
+          
+          $('.drop-box').droppable({
+                                   drop: function( event, ui ) {
+                                   $( this ).html( '<img src="images/line_items/empty_loading.gif" class="loading_category" />' );
+                                   var oldClass = $( this ).attr('class');
+                                   $( this ).removeClass().addClass('drop-box');
+                                   //$( this ).chidren('.loading_category').fadeIn('fast');
+                                   updateCategory( $( this ).parent().attr('id'), ui.draggable.attr('id'), oldClass, $(this), function successCategoryCallback(data, categoryName, oldClass, dropbox){
+                                                  if(data.response == 'ok'){
+                                                    dropbox.removeClass().addClass( "drop-box ui-droppable " + categoryName );
+                                                  } else {
+                                                    dropbox.removeClass().addClass(oldClass);
+                                                  }
+                                                  dropbox.html( '' );
+                                                  } );
+                                   },
+                                   hoverClass: "drop-highlight"
+                                   });
+          
+          $('.rating div').on('click', function rateItem(){
+                              $(this).siblings(' .loading ').show();
+                              var scoreText = $(this).attr('class');
+                              
+                              updateSatisfaction($( this ).parents( '.item' ).attr('id'), ratingHash[scoreText], function successSatisfactionCallback(data){
+                                                 if(data.response == 'ok'){
+                                                  var ratingbox = $( '.item#' + data.id + ' .rating' );
+                                                  ratingbox.removeClass().addClass( 'rating ' + ratingString[data.satisfaction] );
+                                                 ratingbox.children('.loading').hide();
+                                                 }
+                                                 });
+                              });
+          
+          $('.see_feedbacks').on('click', function toggle_rating_panel(){
+                                 var animatedPanel = $(this).parent().siblings('.feedbacks');
+                                 animatedPanel.animate({height: 'toggle'}, 'slow');
+                                 });
+          
+          $('.feedbacks').on('touchstart', function hide_rating_panel(){
+                             $(this).animate({height: 'toggle'}, 'slow');
+                             });
+          
+          $('.eco-check').on('click', function openEcoPanel(){
+                             if( $(this).hasClass('checked') ){
+                             $(this).removeClass('checked');
+                             } else{
+                             slidingPanel = $('.new-eco');
+                             $(this).addClass('checked');
+                             greyed.addClass('all');
+                             greyed.fadeIn('slow');
+                             //slidingPanel.animate({"bottom": "+=" + (slidingPanel.height() + 50) + "px"}, "slow");
+                             slidingPanel.animate({height: 'toggle'}, 'slow');
+                             //slidingPanel.css('bottom', '0');
+                             slidingPanel.addClass('bottom-expanded');					
+                             }	
+                             });
+        }
+        
+        $('#profile_picture').on('touchstart', function(){
+                                 navigator.camera.getPicture(onCameraSuccess, onCameraFail, { quality: 50, targetWidth: 60, targetHeight: 60 }); 
+                                 
+                                 function onCameraSuccess(imageData) {
+                                 $('#profile_picture img').attr('src', 'data:image/jpeg;base64,' + imageData);
+                                 }
+                                 
+                                 function onCameraFail(message) {
+                                 alert('Erreur lors de l\'enregistrement de la photo : ' + message);
+                                 }
+                                 });
+        $('#tutorial_overlay').on('touchend', function(){
+                                 $(this).fadeOut('fast');
+                                 greyed.fadeOut('fast');
+                                 greyed.removeClass('all');
+                                 });
+
+      }
+      
+            
+      </script>
+  </head>
+  <body onload="onBodyLoad()">
+    <div id="login_screen" class="noscroll">
+      <div class="app_logo"></div>
+      <form name="login_form" action="">
+        <input type="text" name="login" placeholder="Identifiant" />
+        <input type="password" name="password" placeholder="Mot de passe" />
+        <div id="loading"></div>
+        <input type="submit" value="Valider" id="login_button" >
+      </form>
+      <div class="login_help">
+        <b>Login:</b> jean<br/>
+        <b>Mot de passe:</b> welcome1<br/>
+      </div>
+    </div>
+    
+    <div id="tutorial_overlay" class="noscroll"></div>
+    
+    <div class="wrapper">
+      <div class="header noscroll">
+        <ul class="categories">
+          <li id="transport" class="draggable"><img src="images/header/transport.png" /></li>
+          <li id="health" class="draggable"><img src="images/header/health.png" /></li>
+          <li id="house" class="draggable"><img src="images/header/house.png" /></li>
+          <li id="community" class="draggable"><img src="images/header/community.png" /></li>
+          <li id="clothing" class="draggable"><img src="images/header/clothing.png" /></li>
+          <li id="grocery" class="draggable"><img src="images/header/grocery.png" /></li>
+          <li id="leisure" class="draggable"><img src="images/header/leisure.png" /></li>
+        </ul>
+      </div>
+      <div class="sidebar noscroll">
+        <div id="profile_picture">
+          <img src="images/sidebar/camera.png" />
+        </div>
+        <ul>
+          <li id="eco" class="button"></li>
+          <li id="offers" class="button"></li>
+          <li id="tobin" class="button"></li>
+          <li id="stats" class="button"></li>
+        </ul>
+      </div>
+      <div class="content" id="scrollable-content">
+      </div>
+    </div>
+    <div id="greyed" class="noscroll all"></div>
+    <div class="eco sliding-panel">
+      <h3>Mes pistes d'économie</h3>
+      <ul>
+        <li class="list-header">
+          <div class="category">Catégorie</div>
+          <div class="potential">Économie potentielle</div>
+          <div class="quote">Devis</div>
+        </li>
+      </ul>
+      <ul class="content-list">
+        <li style="display: none;">
+          <div class="category">Téléphone</div>
+          <div class="potential">100€ / mois</div>
+          <div class="quote"></div>
+        </li>
+        <li>
+          <div class="category">Rachat d'emprunt</div>
+          <div class="potential">12300€</div>
+          <div class="quote"></div>
+        </li>
+        <li>
+          <div class="category">Assurance auto</div>
+          <div class="potential">80€ / mois</div>
+          <div class="quote"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="offers sliding-panel">
+      <h3>Mes offres privées</h3>
+      <ul class="content-list">
+        <li>
+          <div class="brand">Hugo Boss</div><div class="discount">40%</div>
+          <div class="countdown">5 jours restants</div>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="brand">L'Occitane</div><div class="discount">20%</div>
+          <div class="countdown">3 jours restants</div>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="brand">Nicolas</div><div class="discount">35%</div>
+          <div class="countdown">1 jour restants</div>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="brand">Burberry</div><div class="discount">40%</div>
+          <div class="countdown">1 jour restants</div>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="brand">San Marina</div><div class="discount">50%</div>
+          <div class="countdown">6 heures restantes</div>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+      </ul>
+      
+    </div>
+    <div class="tobin sliding-panel">
+      <h3>Ma taxe Tobin</h3>
+      <ul>
+        <li class="list-header">
+          <div class="category">Catégorie</div>
+          <div class="rate">Taux</div>
+          <div class="beneficiary">Bénéficiaire</div>
+          <div class="add">+</div>
+        </li>
+      </ul>
+      <ul class="content-list">
+        <li class="hidden-li" style="display: none;">
+          <div class="category">
+            <img class="category-icon" src="images/sliding_panels/categories/colorful/transport.png" />
+          </div>
+          <div class="rate">
+            <select><option>0,01 %</option></select>
+          </div>
+          <div class="beneficiary">
+            <select><option>Green Peace</option></select>
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="category">
+            <img class="category-icon" src="images/sliding_panels/categories/colorful/clothing.png" />
+          </div>
+          <div class="rate">
+            <select><option>0,01 %</option></select>
+          </div>
+          <div class="beneficiary">
+            <select><option>Emmaüs</option></select>
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="category">
+            <img class="category-icon" src="images/sliding_panels/categories/colorful/grossery.png" />
+          </div>
+          <div class="rate">
+            <select><option>0,01 %</option></select>
+          </div>
+          <div class="beneficiary">
+            <select><option>Restos du coeur</option></select>
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        <li>
+          <div class="category">
+            <img class="category-icon" src="images/sliding_panels/categories/colorful/house.png" />
+          </div>
+          <div class="rate">
+            <select><option>0,01 %</option></select>
+          </div>
+          <div class="beneficiary">
+            <select><option>Robin des bois</option></select>
+          </div>
+          <img class="delete-button" src="images/sliding_panels/delete_button.png" />
+        </li>
+        
+      </ul>
+    </div>
+    <div class="stats sliding-panel">
+      <h3>Mes statistiques</h3>
+      <img src="images/sliding_panels/piechart.png"><br/><br/>
+        <div class="chart-header">
+          <h4>Mon classement</h4>
+          <div class="social">
+            <img class="twitter-button" src="images/sliding_panels/twitter.png" />
+            <img class="facebook-button" src="images/sliding_panels/facebook.png" />
+          </div>
+        </div>
+        <img src="images/sliding_panels/columnchart.png">
+          </div>
+    <div class="new-eco noscroll">
+      <div class="fields">
+        <legend>Nouvelle piste d'économie - <select style="font-size: 1em; width: 240px"><option>FORFAIT MOBILE</option></select> <div class="dialog-button validate"></div>
+          <div class="dialog-button cancel"></div></legend>
+        
+        <div class="field_container"><label for="averageCalls">Vous appelez en moyenne: </label><select id="averageCalls" name="averageCalls">
+          <option>30 min. et moins</option>
+          <option>45 minutes</option>
+          <option>1 heure</option>
+          <option>1 heure 15</option>
+          <option>1 heure 30</option>
+          <option>2 heures</option>
+          <option>2 heures 30</option>
+          <option>3 heures</option>
+          <option selected>4 heures</option>
+          <option>5 heures</option>
+          <option>6 heures</option>
+          <option>8 heures</option>
+          <option>10 heures</option>
+          <option>12 heures</option>
+          <option>15 heures</option>
+          <option>18 heures</option>
+          <option>20 heures</option>
+          <option>25 heures</option>
+          <option>30 heures</option>
+          <option>35 heures</option>
+          <option>illimité</option>
+        </select> <span>par mois</span></div><br/>
+        <div class="field_container"><label for="engagement">Voulez-vous un forfait avec ou sans engagement ?</label><select id="engagement" name="engagement">
+          <option>Indiférent</option>
+          <option>sans engagement</option>
+          <option>avec engagement</option>
+        </select></div><br/>
+        <div class="field_container">
+          <label for="internet" >Utilisez vous internet avec votre mobile ?</label>
+          <input type="radio" name="internet" value="yes" checked /><span>Oui</span>
+          <input type="radio" name="internet" value="no" /><span>Non</span>
+        </div><br/>
+        <div class="field_container">
+          <label for="limited" >Souhaitez-vous un forfait bloqué ?</label>
+          <input type="radio" name="limited" value="yes" /><span>Oui</span>
+          <input type="radio" name="limited" value="no" /><span>Non</span>
+          <input type="radio" name="limited" value="dont_know" /><span>Je ne sais pas</span>
+        </div><br/>
+        <div class="field_container">
+          <label for="long_distance" >Appelez-vous vers l'étranger ?</label>
+          <input type="radio" name="long_distance" value="yes" /><span>Oui</span>
+          <input type="radio" name="long_distance" value="no" checked /><span>Non</span>
+        </div><br/>
+      </div>
+    </div> 	
+  </body>
+</html>
